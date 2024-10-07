@@ -33,8 +33,11 @@ function Receive-Message {
     $stream = New-Object System.Net.Sockets.NetworkStream($client)
     $reader = New-Object System.IO.StreamReader($stream)
     try {
-        if ($null -ne $reader.ReadLine()) {
-            return $reader.ReadLine()
+        # Lee la línea de respuesta una vez y guárdala en una variable
+        $responseLine = $reader.ReadLine()
+        
+        if ($null -ne $responseLine) {
+            return $responseLine
         } else {
             return ""
         }
@@ -45,30 +48,103 @@ function Receive-Message {
     }
 }
 
-function Send-SQLCommand {
+function Execute-MyQuery {
     param (
-        [string]$command
+        [Parameter(Mandatory=$true)]
+        [string]$QueryFile,
+        
+        [Parameter(Mandatory=$true)]
+        [int]$Port,
+        
+        [Parameter(Mandatory=$true)]
+        [string]$IP
     )
-    $client = New-Object System.Net.Sockets.Socket($ipEndPoint.AddressFamily, [System.Net.Sockets.SocketType]::Stream, [System.Net.Sockets.ProtocolType]::Tcp)
-    $client.Connect($ipEndPoint)
-    $requestObject = [PSCustomObject]@{
-        RequestType = 0;
-        RequestBody = $command
-    }
-    Write-Host -ForegroundColor Green "Sending command: $command"
 
-    $jsonMessage = ConvertTo-Json -InputObject $requestObject -Compress
-    Send-Message -client $client -message $jsonMessage
-    $response = Receive-Message -client $client
-
-    Write-Host -ForegroundColor Green "Response received: $response"
+    # Crear un EndPoint para conectarse a la API usando los parámetros proporcionados
+    $ipEndPoint = [System.Net.IPEndPoint]::new([System.Net.IPAddress]::Parse($IP), $Port)
     
-    $responseObject = ConvertFrom-Json -InputObject $response
-    Write-Output $responseObject
-    $client.Shutdown([System.Net.Sockets.SocketShutdown]::Both)
-    $client.Close()
+    # Leer el archivo de consultas SQL
+    if (-not (Test-Path $QueryFile)) {
+        Write-Error "El archivo $QueryFile no existe."
+        return
+    }
+    
+    $queries = Get-Content -Path $QueryFile -Raw
+    $queries = $queries -split ';'  # Separar las sentencias por punto y coma
+
+    foreach ($query in $queries) {
+        # Limpiar espacios en blanco alrededor de la consulta
+        $query = $query.Trim()
+        if ($query -eq "") { continue }  # Ignorar sentencias vacías
+
+        Write-Host "Ejecutando: $query"
+
+        # Enviar la consulta al servidor y medir el tiempo de ejecución
+        $start = Get-Date
+        $result = Send-SQLCommand -Query $query -IPEndPoint $ipEndPoint
+        $end = Get-Date
+        $duration = $end - $start
+
+        # Mostrar el resultado en formato tabla, asegurándote de que ResponseBody se imprima
+        if ($result) {
+            $result | Format-Table -Property RequestType, RequestBody, Status, ResponseBody -AutoSize
+        } else {
+            Write-Host "Sin resultados."
+        }
+
+        # Mostrar el tiempo que tomó ejecutar la consulta
+        Write-Host "Tiempo de ejecución: $($duration.TotalMilliseconds) ms"
+    }
 }
 
+
+
+# Función para enviar la consulta SQL al servidor
+function Send-SQLCommand {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$Query,
+        
+        [Parameter(Mandatory=$true)]
+        [System.Net.IPEndPoint]$IPEndPoint
+    )
+    
+    # Crear el socket para conectarse a la API
+    $client = New-Object System.Net.Sockets.Socket($IPEndPoint.AddressFamily, [System.Net.Sockets.SocketType]::Stream, [System.Net.Sockets.ProtocolType]::Tcp)
+    
+    try {
+        $client.Connect($IPEndPoint)
+        
+        # Crear el mensaje de la consulta en formato JSON
+        $requestObject = [PSCustomObject]@{
+            RequestType = 0;  # Por ejemplo, tipo de operación
+            RequestBody = $Query  # Cuerpo de la consulta SQL
+        }
+        $jsonMessage = ConvertTo-Json -InputObject $requestObject -Compress
+
+        # Enviar la consulta al servidor
+        $stream = New-Object System.Net.Sockets.NetworkStream($client)
+        $writer = New-Object System.IO.StreamWriter($stream)
+        $writer.WriteLine($jsonMessage)
+        $writer.Flush()
+
+        # Leer la respuesta del servidor
+        $reader = New-Object System.IO.StreamReader($stream)
+        $response = $reader.ReadLine()
+
+        # Convertir la respuesta JSON en un objeto
+        $responseObject = ConvertFrom-Json -InputObject $response
+        return $responseObject
+    } catch {
+        Write-Error "Error al conectar o enviar la consulta: $_"
+    } finally {
+        $client.Shutdown([System.Net.Sockets.SocketShutdown]::Both)
+        $client.Close()
+    }
+}
+
+
 # This is an example, should not be called here
-Send-SQLCommand -command "CREATE TABLE ESTUDIANTE"
-Send-SQlCommand -command "SELECT * FROM ESTUDIANTE"
+# Ejemplo de prueba
+Send-SQLCommand -Query "CREATE TABLE ESTUDIANTE" -IPEndPoint $ipEndPoint
+Send-SQLCommand -Query "SELECT * FROM ESTUDIANTE" -IPEndPoint $ipEndPoint

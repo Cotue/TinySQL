@@ -60,7 +60,19 @@ namespace ApiInterface
         private static Response ProcessRequest(Request requestObject)
         {
             var processor = ProcessorFactory.Create(requestObject);
-            return processor.Process();
+            Response response = processor.Process();
+
+            // Asegúrate de que el campo ResponseBody contiene el resultado de la consulta
+            if (response != null && response.ResponseBody != null)
+            {
+                Console.WriteLine($"Procesado: {response.ResponseBody}");
+            }
+            else
+            {
+                Console.WriteLine("No se encontraron resultados.");
+            }
+
+            return response;
         }
 
         private static void SendResponse(Response response, Socket handler)
@@ -68,7 +80,10 @@ namespace ApiInterface
             using (NetworkStream stream = new NetworkStream(handler))
             using (StreamWriter writer = new StreamWriter(stream))
             {
-                writer.WriteLine(JsonSerializer.Serialize(response));
+                // Serializar la respuesta a JSON y enviarla al cliente
+                string jsonResponse = JsonSerializer.Serialize(response);
+                writer.WriteLine(jsonResponse);
+                writer.Flush();  // Asegúrate de que la respuesta sea enviada completamente
             }
         }
 

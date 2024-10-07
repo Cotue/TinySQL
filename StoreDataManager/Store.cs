@@ -61,6 +61,7 @@ namespace StoreDataManager
                 writer.Write(id);
                 writer.Write(nombre);
                 writer.Write(apellido);
+            
             }
             return OperationStatus.Success;
         }
