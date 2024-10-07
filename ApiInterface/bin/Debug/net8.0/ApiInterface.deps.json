@@ -1,0 +1,62 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ApiInterface/1.0.0": {
+        "dependencies": {
+          "QueryProcessor": "1.0.0"
+        },
+        "runtime": {
+          "ApiInterface.dll": {}
+        }
+      },
+      "Entities/1.0.0": {
+        "runtime": {
+          "Entities.dll": {}
+        }
+      },
+      "QueryProcessor/1.0.0": {
+        "dependencies": {
+          "StoreDataManager": "1.0.0"
+        },
+        "runtime": {
+          "QueryProcessor.dll": {}
+        }
+      },
+      "StoreDataManager/1.0.0": {
+        "dependencies": {
+          "Entities": "1.0.0"
+        },
+        "runtime": {
+          "StoreDataManager.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ApiInterface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QueryProcessor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StoreDataManager/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
