@@ -1,12 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\alear\\source\\repos\\TinySQL\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BA429044-79E0-4687-94CE-72A03E773EA2}|Solution Items{BA429044-79E0-4687-94CE-72A03E773EA2}|C:\\Users\\alear\\source\\repos\\TinySQL\\Client\\tinysqlclient.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{BA429044-79E0-4687-94CE-72A03E773EA2}|Solution Items{BA429044-79E0-4687-94CE-72A03E773EA2}|solutionrelative:Client\\tinysqlclient.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|c:\\users\\alear\\source\\repos\\tinysql\\apiinterface\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|solutionrelative:apiinterface\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "tinysqlclient.ps1",
+              "DocumentMoniker": "C:\\Users\\alear\\source\\repos\\TinySQL\\Client\\tinysqlclient.ps1",
+              "RelativeDocumentMoniker": "Client\\tinysqlclient.ps1",
+              "ToolTip": "C:\\Users\\alear\\source\\repos\\TinySQL\\Client\\tinysqlclient.ps1",
+              "RelativeToolTip": "Client\\tinysqlclient.ps1",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-07T06:26:59.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Server.cs",
+              "DocumentMoniker": "C:\\Users\\alear\\source\\repos\\TinySQL\\ApiInterface\\Server.cs",
+              "RelativeDocumentMoniker": "ApiInterface\\Server.cs",
+              "ToolTip": "C:\\Users\\alear\\source\\repos\\TinySQL\\ApiInterface\\Server.cs",
+              "RelativeToolTip": "ApiInterface\\Server.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAEwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T05:47:11.544Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
