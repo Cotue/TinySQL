@@ -33,13 +33,18 @@ function Receive-Message {
     $stream = New-Object System.Net.Sockets.NetworkStream($client)
     $reader = New-Object System.IO.StreamReader($stream)
     try {
-        return $null -ne $reader.ReadLine ? $reader.ReadLine() : ""
+        if ($null -ne $reader.ReadLine()) {
+            return $reader.ReadLine()
+        } else {
+            return ""
+        }
     }
     finally {
         $reader.Close()
         $stream.Close()
     }
 }
+
 function Send-SQLCommand {
     param (
         [string]$command
