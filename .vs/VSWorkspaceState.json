@@ -1,15 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\ApiInterface",
-    "\\ApiInterface\\Exceptions",
-    "\\ApiInterface\\Models",
-    "\\ApiInterface\\Processors",
-    "\\Client",
-    "\\Entities",
-    "\\QueryProcessor",
-    "\\QueryProcessor\\Operations"
+    ""
   ],
-  "SelectedNode": "\\ApiInterface\\ApiInterface.csproj",
+  "SelectedNode": "\\TinySQLDb.sln",
   "PreviewInSolutionExplorer": false
 }
