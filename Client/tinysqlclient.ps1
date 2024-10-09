@@ -85,9 +85,13 @@ function Execute-MyQuery {
         $end = Get-Date
         $duration = $end - $start
 
-        # Mostrar el resultado en formato tabla, asegurándote de que ResponseBody se imprima
-        if ($result) {
-            $result | Format-Table -Property RequestType, RequestBody, Status, ResponseBody -AutoSize
+        # Después de recibir el resultado, imprimir el contenido crudo de ResponseBody
+        if ($result.ResponseBody) {
+            # Imprimir el contenido crudo para asegurarse de lo que llega
+            Write-Host "Contenido crudo de ResponseBody: '$($result.ResponseBody)'"
+
+            # Llamar a la función para formatear y mostrar el cuerpo de la respuesta en formato tabla
+            Format-ResponseBody -ResponseBody $result.ResponseBody
         } else {
             Write-Host "Sin resultados."
         }
@@ -97,7 +101,39 @@ function Execute-MyQuery {
     }
 }
 
+function Format-ResponseBody {
+    param (
+        [string]$ResponseBody
+    )
 
+    # Dividir el ResponseBody en filas (en este caso parece ser una sola fila)
+    $rows = $ResponseBody -split '\n'
+
+    # Crear un array para almacenar los objetos que se mostrarán en la tabla
+    $resultados = @()
+
+    # Dividir cada fila por comas (asumimos que los datos están separados por comas)
+    foreach ($row in $rows) {
+        $columns = $row -split ','
+
+        # Si hay al menos 3 columnas (ID, Nombre, Apellido), creamos un objeto
+        if ($columns.Length -ge 3) {
+            $obj = [pscustomobject]@{
+                ID      = $columns[0].Trim()
+                Nombre  = $columns[1].Trim()
+                Apellido = $columns[2].Trim()
+            }
+            $resultados += $obj
+        }
+    }
+
+    # Mostrar los resultados en formato tabla
+    if ($resultados.Count -gt 0) {
+        $resultados | Format-Table -AutoSize
+    } else {
+        Write-Host "No se pudieron formatear los resultados."
+    }
+}
 
 # Función para enviar la consulta SQL al servidor
 function Send-SQLCommand {
@@ -142,7 +178,6 @@ function Send-SQLCommand {
         $client.Close()
     }
 }
-
 
 # This is an example, should not be called here
 # Ejemplo de prueba

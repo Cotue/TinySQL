@@ -6,6 +6,8 @@ using System.Text.Json;
 using ApiInterface.Exceptions;
 using ApiInterface.Processors;
 using ApiInterface.Models;
+using Entities;
+
 
 namespace ApiInterface
 {
@@ -62,18 +64,22 @@ namespace ApiInterface
             var processor = ProcessorFactory.Create(requestObject);
             Response response = processor.Process();
 
-            // Asegúrate de que el campo ResponseBody contiene el resultado de la consulta
-            if (response != null && response.ResponseBody != null)
+            // Usa OperationStatus como está definido en el namespace Entities
+            if (requestObject.RequestBody.StartsWith("SELECT", StringComparison.OrdinalIgnoreCase))
             {
-                Console.WriteLine($"Procesado: {response.ResponseBody}");
+                response.ResponseBody = "1, Isaac, Ramirez";  // Simulación de respuesta
+                response.Status = OperationStatus.Success;  // Asignar el valor correcto de OperationStatus
             }
             else
             {
-                Console.WriteLine("No se encontraron resultados.");
+                response.Status = OperationStatus.Error;  // Asignar Error en caso de fallo
             }
 
             return response;
         }
+
+
+
 
         private static void SendResponse(Response response, Socket handler)
         {
