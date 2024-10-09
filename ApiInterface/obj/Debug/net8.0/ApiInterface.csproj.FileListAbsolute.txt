@@ -43,3 +43,4 @@ C:\Users\alear\source\repos\TinySQL\ApiInterface\obj\Debug\net8.0\refint\ApiInte
 C:\Users\alear\source\repos\TinySQL\ApiInterface\obj\Debug\net8.0\ApiInterface.pdb
 C:\Users\alear\source\repos\TinySQL\ApiInterface\obj\Debug\net8.0\ApiInterface.genruntimeconfig.cache
 C:\Users\alear\source\repos\TinySQL\ApiInterface\obj\Debug\net8.0\ref\ApiInterface.dll
+C:\Users\X\Desktop\TinySQLDb-main\ApiInterface\obj\Debug\net8.0\ApiInterface.sourcelink.json

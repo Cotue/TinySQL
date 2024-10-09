@@ -33,3 +33,4 @@ C:\Users\alear\source\repos\TinySQL\QueryProcessor\obj\Debug\net8.0\QueryProcess
 C:\Users\alear\source\repos\TinySQL\QueryProcessor\obj\Debug\net8.0\refint\QueryProcessor.dll
 C:\Users\alear\source\repos\TinySQL\QueryProcessor\obj\Debug\net8.0\QueryProcessor.pdb
 C:\Users\alear\source\repos\TinySQL\QueryProcessor\obj\Debug\net8.0\ref\QueryProcessor.dll
+C:\Users\X\Desktop\TinySQLDb-main\QueryProcessor\obj\Debug\net8.0\QueryProcessor.sourcelink.json
