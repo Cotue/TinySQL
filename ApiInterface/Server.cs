@@ -6,6 +6,7 @@ using System.Text.Json;
 using ApiInterface.Exceptions;
 using ApiInterface.Processors;
 using ApiInterface.Models;
+using Entities;
 
 namespace ApiInterface
 {
@@ -59,6 +60,7 @@ namespace ApiInterface
 
         private static Response ProcessRequest(Request requestObject)
         {
+
             var processor = ProcessorFactory.Create(requestObject);
             Response response = processor.Process();
 
@@ -87,11 +89,27 @@ namespace ApiInterface
             }
         }
 
-        private static Task SendErrorResponse(string reason, Socket handler)
+        private static async Task SendErrorResponse(string reason, Socket handler)
         {
-            throw new NotImplementedException();
+            using (NetworkStream stream = new NetworkStream(handler))
+            using (StreamWriter writer = new StreamWriter(stream))
+            {
+                // Crear un objeto de respuesta de error
+                var errorResponse = new Response
+                {
+                    Status = OperationStatus.Error, // Marcar el estado como error
+                    Request = null, // En este caso, no hay una solicitud válida
+                    ResponseBody = $"Error: {reason}" // Incluir el motivo del error
+                };
+
+                // Serializar la respuesta a JSON y enviarla al cliente
+                string jsonResponse = JsonSerializer.Serialize(errorResponse);
+                await writer.WriteLineAsync(jsonResponse);
+                await writer.FlushAsync();  // Asegúrate de que la respuesta sea enviada completamente
+            }
         }
 
-        
+
+
     }
 }

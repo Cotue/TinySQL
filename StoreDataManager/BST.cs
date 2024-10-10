@@ -15,7 +15,7 @@ namespace StoreDataManager
             _root = null;
         }
 
-        // Métodos para insertar y buscar en el árbol binario de búsqueda
+        // Insertar una clave en el árbol binario de búsqueda
         public void Insert(int key)
         {
             _root = InsertRec(_root, key);
@@ -37,6 +37,7 @@ namespace StoreDataManager
             return root;
         }
 
+        // Buscar una clave en el árbol binario de búsqueda
         public bool Search(int key)
         {
             return SearchRec(_root, key);
@@ -53,5 +54,6 @@ namespace StoreDataManager
             return key < root.Key ? SearchRec(root.Left, key) : SearchRec(root.Right, key);
         }
     }
+
 }
 

@@ -82,23 +82,77 @@ namespace StoreDataManager
             // Crear el índice basado en el tipo
             if (indexType == "BTREE")
             {
-                BTree index = new BTree(3);
-                // Recorrer la columna y agregar al índice (asegurarse de que no haya duplicados)
-                // index.Insert(...);
+                BTree index = new BTree(3);  // Crear un BTree de grado 3
+                Console.WriteLine($"Creando índice BTREE en la columna {columnName} de la tabla {tableName}.");
+
+
+                // Recorrer la columna y agregar al índice
+                using (FileStream stream = File.Open(tablePath, FileMode.OpenOrCreate))
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    while (reader.BaseStream.Position != reader.BaseStream.Length)
+                    {
+                        // Leer los valores de la tabla
+                        int id = reader.ReadInt32();  // Asumiendo que la columna es del tipo int
+                        string nombre = reader.ReadString();
+                        string apellido = reader.ReadString();
+
+                        // Insertar en el índice si es la columna que estamos indexando
+                        if (columnName == "ID")
+                        {
+                            if (!index.Search(id))  // Asegurarse de que no haya duplicados
+                            {
+                                index.Insert(id);
+                            }
+                            else
+                            {
+                                Console.WriteLine($"El valor {id} en la columna {columnName} ya existe. No se permiten duplicados.");
+                                return OperationStatus.Error;
+                            }
+                        }
+                    }
+                }
             }
             else if (indexType == "BST")
             {
-                BST index = new BST();
-                // Recorrer la columna y agregar al índice (asegurarse de que no haya duplicados)
-                // index.Insert(...);
+                BST index = new BST();  // Crear un BST
+                Console.WriteLine($"Creando índice BST en la columna {columnName} de la tabla {tableName}.");
+
+                // Recorrer la columna y agregar al índice
+                using (FileStream stream = File.Open(tablePath, FileMode.OpenOrCreate))
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    while (reader.BaseStream.Position != reader.BaseStream.Length)
+                    {
+                        // Leer los valores de la tabla
+                        int id = reader.ReadInt32();  // Asumiendo que la columna es del tipo int
+                        string nombre = reader.ReadString();
+                        string apellido = reader.ReadString();
+
+                        // Insertar en el índice si es la columna que estamos indexando
+                        if (columnName == "ID")
+                        {
+                            if (!index.Search(id))  // Asegurarse de que no haya duplicados
+                            {
+                                index.Insert(id);
+                            }
+                            else
+                            {
+                                Console.WriteLine($"El valor {id} en la columna {columnName} ya existe. No se permiten duplicados.");
+                                return OperationStatus.Error;
+                            }
+                        }
+                    }
+                }
             }
 
             // Registrar el índice en el system catalog
             SystemCatalog.AddIndex(indexName, tableName, columnName, indexType);
-
             Console.WriteLine($"Índice {indexName} creado en la columna {columnName} de la tabla {tableName}.");
+
             return OperationStatus.Success;
         }
+
 
         public OperationStatus CreateTable(string tableName, Dictionary<string, string> columns)
         {
@@ -153,7 +207,13 @@ namespace StoreDataManager
                 return OperationStatus.Error;
             }
 
-            // Falta verificar que este vacia
+            // Verificar si la tabla está vacía
+            FileInfo fileInfo = new FileInfo(tablePath);
+            if (fileInfo.Length > 0)
+            {
+                Console.WriteLine($"No se puede eliminar la tabla {tableName} porque no está vacía.");
+                return OperationStatus.Error;
+            }
 
             // Eliminar la tabla
             File.Delete(tablePath);

@@ -2,7 +2,13 @@
 CREATE DATABASE Universidad;
 
 -- Seleccionar la base de datos 'Universidad'
--- SET DATABASE Universidad;
+CREATE TABLE Casas (
+    ID INTEGER,
+    Nombre VARCHAR(30),
+    Apellido VARCHAR(50),
+    FechaNacimiento DATETIME
+);
+
 
 -- Crear una tabla llamada 'Estudiantes' dentro de la base de datos 'Universidad'
 CREATE TABLE Estudiantes (

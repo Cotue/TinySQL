@@ -2,6 +2,7 @@
 using QueryProcessor.Exceptions;
 using QueryProcessor.Operations;
 using StoreDataManager;
+using System.Text.RegularExpressions;
 
 namespace QueryProcessor
 {
@@ -15,7 +16,7 @@ namespace QueryProcessor
                 var parts = sentence.Split(' ');
                 if (parts.Length != 3)
                 {
-                    throw new UnknownSQLSentenceException(); // Lanzar sin mensaje
+                    throw new UnknownSQLSentenceException();
                 }
 
                 var databaseName = parts[2];  // Obtener el nombre de la base de datos
@@ -27,7 +28,7 @@ namespace QueryProcessor
                 var parts = sentence.Split(' ');
                 if (parts.Length != 3)
                 {
-                    throw new UnknownSQLSentenceException(); // Lanzar sin mensaje
+                    throw new UnknownSQLSentenceException();
                 }
 
                 var databaseName = parts[2];
@@ -55,10 +56,8 @@ namespace QueryProcessor
                 return new CreateTable().Execute(tableName, columnsDict);  // Llamada con los parámetros correctos
             }
 
-
             if (sentence.StartsWith("INSERT INTO"))
             {
-                
                 return new Insert().Execute(sentence);
             }
 
@@ -67,9 +66,8 @@ namespace QueryProcessor
                 var parts = sentence.Split(' ');
                 if (parts.Length != 3)
                 {
-                    throw new UnknownSQLSentenceException();  
+                    throw new UnknownSQLSentenceException();
                 }
-
 
                 var tableName = parts[2];  // Obtener el nombre de la tabla
                 return Store.GetInstance().DropTable(tableName);
@@ -80,6 +78,30 @@ namespace QueryProcessor
                 return new Select().Execute();
             }
 
+            if (sentence.StartsWith("CREATE INDEX"))
+            {
+                // Dividir la sentencia en partes clave
+                var parts = sentence.Split(new[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+
+                if (parts.Length < 8 || parts[5] != "OF" || parts[6] != "TYPE")
+                {
+                    throw new UnknownSQLSentenceException(); // Lanza excepción si la sintaxis es incorrecta
+                }
+
+                var indexName = parts[2];         // IDX_Casas_ID
+                var tableName = parts[4];         // Casas
+                var columnName = parts[6];        // ID
+                var indexType = parts[7];         // BTREE o BST
+
+                Console.WriteLine($"Nombre del índice: {indexName}, Tabla: {tableName}, Columna: {columnName}, Tipo: {indexType}");
+
+                // Llamar a Store para crear el índice
+                return Store.GetInstance().CreateIndex(indexName, tableName, columnName, indexType);
+            }
+
+
+
+            // Si no coincide con ninguna sentencia conocida
             else
             {
                 throw new UnknownSQLSentenceException();
@@ -87,5 +109,6 @@ namespace QueryProcessor
         }
     }
 }
+
 
 

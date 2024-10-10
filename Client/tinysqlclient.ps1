@@ -28,12 +28,18 @@ function Send-SQLCommand {
     try {
         $client.Connect($IPEndPoint)
         
+        # Verificar y mostrar el Query antes de enviarlo
+        Write-Host "Enviando consulta al servidor: $Query"
+        
         # Crear el mensaje de la consulta en formato JSON
         $requestObject = [PSCustomObject]@{
-            RequestType = 0;  # Por ejemplo, tipo de operación SQL
-            RequestBody = $Query  # Cuerpo de la consulta SQL
+            RequestType = 0;
+            RequestBody = $Query  # Aquí se envía la consulta SQL tal como viene
         }
         $jsonMessage = ConvertTo-Json -InputObject $requestObject -Compress
+
+        # Verificar el JSON generado
+        Write-Host "JSON generado para enviar: $jsonMessage"
 
         # Enviar la consulta al servidor
         $stream = New-Object System.Net.Sockets.NetworkStream($client)
@@ -45,6 +51,11 @@ function Send-SQLCommand {
         $reader = New-Object System.IO.StreamReader($stream)
         $response = $reader.ReadLine()
 
+        if ($null -eq $response) {
+            Write-Error "Error: No se recibió ninguna respuesta del servidor."
+            return $null
+        }
+
         # Convertir la respuesta JSON en un objeto
         $responseObject = ConvertFrom-Json -InputObject $response
         return $responseObject
@@ -55,6 +66,7 @@ function Send-SQLCommand {
         $client.Close()
     }
 }
+
 
 # Función para ejecutar las consultas desde un archivo SQL
 function Execute-MyQuery {
