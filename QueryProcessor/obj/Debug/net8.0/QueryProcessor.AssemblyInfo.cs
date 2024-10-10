@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QueryProcessor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a260be10f194091e57ee49edd9afc8eaaf44068")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07bd2882218f0b9ecf8a152fa57e5cf305cc2d57")]
 [assembly: System.Reflection.AssemblyProductAttribute("QueryProcessor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QueryProcessor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
