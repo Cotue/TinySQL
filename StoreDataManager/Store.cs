@@ -8,12 +8,13 @@ namespace StoreDataManager
     {
         private static Store? instance = null;
         private static readonly object _lock = new object();
-               
+        private string? currentDatabase = null; // Variable para almacenar la base de datos seleccionada
+
         public static Store GetInstance()
         {
-            lock(_lock)
+            lock (_lock)
             {
-                if (instance == null) 
+                if (instance == null)
                 {
                     instance = new Store();
                 }
@@ -31,6 +32,22 @@ namespace StoreDataManager
         {
             this.InitializeSystemCatalog();
             
+        }
+        public OperationStatus SetDatabase(string databaseName)
+        {
+            var databasePath = $@"{DataPath}\{databaseName}";
+
+            // Verificar si la base de datos existe
+            if (!Directory.Exists(databasePath))
+            {
+                Console.WriteLine($"La base de datos {databaseName} no existe.");
+                return OperationStatus.Error;
+            }
+
+            // Establecer la base de datos actual
+            currentDatabase = databaseName;
+            Console.WriteLine($"Contexto cambiado a la base de datos: {databaseName}");
+            return OperationStatus.Success;
         }
 
         private void InitializeSystemCatalog()
@@ -65,6 +82,11 @@ namespace StoreDataManager
             }
             return OperationStatus.Success;
         }
+        public string? GetCurrentDatabase()
+        {
+            return currentDatabase;
+        }
+
         public OperationStatus CreateDatabase(string databaseName)
         {
             // Ruta para la base de datos

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StoreDataManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58771197569477fc843202c4d8329a21d09c3373")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3b612de30d99f12111e97f73723459be1485c77")]
 [assembly: System.Reflection.AssemblyProductAttribute("StoreDataManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StoreDataManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

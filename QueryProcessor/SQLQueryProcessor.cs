@@ -10,19 +10,30 @@ namespace QueryProcessor
         public static OperationStatus Execute(string sentence)
         {
             /// Parser para identificar y procesar las sentencias SQL
-
             if (sentence.StartsWith("CREATE DATABASE"))
             {
-                // Extraer el nombre de la base de datos de la sentencia SQL
                 var parts = sentence.Split(' ');
                 if (parts.Length != 3)
                 {
-                    throw new UnknownSQLSentenceException();
+                    throw new UnknownSQLSentenceException(); // Lanzar sin mensaje
                 }
 
                 var databaseName = parts[2];  // Obtener el nombre de la base de datos
                 return Store.GetInstance().CreateDatabase(databaseName);
             }
+
+            if (sentence.StartsWith("SET DATABASE"))
+            {
+                var parts = sentence.Split(' ');
+                if (parts.Length != 3)
+                {
+                    throw new UnknownSQLSentenceException(); // Lanzar sin mensaje
+                }
+
+                var databaseName = parts[2];
+                return Store.GetInstance().SetDatabase(databaseName);
+            }
+
 
             if (sentence.StartsWith("CREATE TABLE"))
             {
@@ -41,4 +52,5 @@ namespace QueryProcessor
         }
     }
 }
+
 
