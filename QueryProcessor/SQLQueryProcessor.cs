@@ -34,6 +34,11 @@ namespace QueryProcessor
                 return Store.GetInstance().SetDatabase(databaseName);
             }
 
+            if (sentence.StartsWith("INSERT INTO"))
+            {
+                
+                return new Insert().Execute(sentence);
+            }
 
             if (sentence.StartsWith("CREATE TABLE"))
             {

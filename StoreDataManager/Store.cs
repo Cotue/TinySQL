@@ -28,6 +28,10 @@ namespace StoreDataManager
         private const string SystemDatabasesFile = $@"{SystemCatalogPath}\SystemDatabases.table";
         private const string SystemTablesFile = $@"{SystemCatalogPath}\SystemTables.table";
 
+        public string GetDataPath()
+        {
+            return DataPath;
+        }
         public Store()
         {
             this.InitializeSystemCatalog();
