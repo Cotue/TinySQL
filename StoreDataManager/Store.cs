@@ -287,19 +287,49 @@ namespace StoreDataManager
 
 
 
-        public OperationStatus Select()
+        public OperationStatus Select(string tableName)
         {
-            // Creates a default Table called ESTUDIANTES
-            var tablePath = $@"{DataPath}\TESTDB\ESTUDIANTES.Table";
-            using (FileStream stream = File.Open(tablePath, FileMode.OpenOrCreate))
-            using (BinaryReader reader = new (stream))
+            var tablePath = $@"{GetDataPath()}\{GetCurrentDatabase()}\{tableName}.Table";
+
+            // Verificar si la tabla existe
+            if (!File.Exists(tablePath))
             {
-                // Print the values as a I know exactly the types, but this needs to be done right
-                Console.WriteLine(reader.ReadInt32());
-                Console.WriteLine(reader.ReadString());
-                Console.WriteLine(reader.ReadString());
-                return OperationStatus.Success;
+                Console.WriteLine($"La tabla {tableName} no existe.");
+                return OperationStatus.Error;
             }
+
+            Console.WriteLine($"Mostrando datos de la tabla {tableName}:");
+
+            // Imprimir la cabecera de la tabla
+            Console.WriteLine("\n{0,-10} | {1,-30} | {2,-50}", "ID", "Nombre", "Apellido");
+            Console.WriteLine(new string('-', 100)); // Separador
+
+            // Recorrer los registros de la tabla
+            using (FileStream stream = File.Open(tablePath, FileMode.Open))
+            using (BinaryReader reader = new BinaryReader(stream))
+            {
+                while (stream.Position < stream.Length)
+                {
+                    try
+                    {
+                        // Leer cada campo de la tabla (adaptar según la estructura real)
+                        int id = reader.ReadInt32();
+                        string nombre = reader.ReadString().Trim().Replace("\0", "");  // Eliminar caracteres nulos
+                        string apellido = reader.ReadString().Trim().Replace("\0", "");
+
+                        // Imprimir cada fila en formato tabla
+                        Console.WriteLine("{0,-10} | {1,-30} | {2,-50}", id, nombre, apellido);
+                    }
+                    catch (EndOfStreamException)
+                    {
+                        Console.WriteLine("Fin del archivo alcanzado.");
+                        break;
+                    }
+                }
+            }
+
+            return OperationStatus.Success;
         }
+
     }
 }

@@ -76,8 +76,16 @@ namespace QueryProcessor
 
             if (sentence.StartsWith("SELECT"))
             {
-                return new Select().Execute();
+                var parts = sentence.Split(' ');
+                if (parts.Length != 4)  // Verifica que haya un formato adecuado como "SELECT * FROM tableName"
+                {
+                    throw new UnknownSQLSentenceException();
+                }
+
+                var tableName = parts[3];  // El nombre de la tabla debería estar en la cuarta posición
+                return new Select().Execute(tableName);
             }
+
 
             if (sentence.StartsWith("CREATE INDEX"))
             {

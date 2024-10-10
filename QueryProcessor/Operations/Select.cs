@@ -10,10 +10,10 @@ namespace QueryProcessor.Operations
 {
     internal class Select
     {
-        public OperationStatus Execute()
+        public OperationStatus Execute(string tableName)
         {
             // This is only doing the query but not returning results.
-            return Store.GetInstance().Select();
+            return Store.GetInstance().Select(tableName);
         }
     }
 }
