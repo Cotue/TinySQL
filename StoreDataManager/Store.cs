@@ -85,6 +85,9 @@ namespace StoreDataManager
                 BTree index = new BTree(3);  // Crear un BTree de grado 3
                 Console.WriteLine($"Creando índice BTREE en la columna {columnName} de la tabla {tableName}.");
 
+                // Imprimir la cabecera de la tabla
+                Console.WriteLine("\n{0,-10} | {1,-30} | {2,-50}", "ID", "Nombre", "Apellido");
+                Console.WriteLine(new string('-', 100)); // Separador
 
                 // Recorrer la columna y agregar al índice
                 using (FileStream stream = File.Open(tablePath, FileMode.Open))
@@ -95,10 +98,26 @@ namespace StoreDataManager
                         try
                         {
                             int id = reader.ReadInt32();
-                            string nombre = reader.ReadString();
-                            string apellido = reader.ReadString();
 
-                            Console.WriteLine($"ID: {id}, Nombre: {nombre}, Apellido: {apellido}");
+                            // Asegurarse de que las cadenas leídas estén bien formateadas
+                            string nombre = reader.ReadString().Trim().Replace("\0", "");  // Eliminar caracteres nulos
+                            string apellido = reader.ReadString().Trim().Replace("\0", "");
+
+                            // Verificar si las cadenas contienen caracteres inesperados
+                            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido))
+                            {
+                                Console.WriteLine("Valor inválido encontrado, omitiendo fila.");
+                                continue;
+                            }
+
+                            // Imprimir la fila formateada en la tabla
+                            Console.WriteLine("{0,-10} | {1,-30} | {2,-50}", id, nombre, apellido);
+
+                            // Insertar en el índice si es la columna ID
+                            if (columnName == "ID")
+                            {
+                                index.Insert(id);
+                            }
                         }
                         catch (EndOfStreamException)
                         {
@@ -107,23 +126,35 @@ namespace StoreDataManager
                         }
                     }
                 }
-
             }
             else if (indexType == "BST")
             {
                 BST index = new BST();  // Crear un BST
                 Console.WriteLine($"Creando índice BST en la columna {columnName} de la tabla {tableName}.");
 
+                // Imprimir la cabecera de la tabla
+                Console.WriteLine("\n{0,-10} | {1,-30} | {2,-50}", "ID", "Nombre", "Apellido");
+                Console.WriteLine(new string('-', 100)); // Separador
+
                 // Recorrer la columna y agregar al índice
-                using (FileStream stream = File.Open(tablePath, FileMode.OpenOrCreate))
+                using (FileStream stream = File.Open(tablePath, FileMode.Open))
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
                     while (reader.BaseStream.Position != reader.BaseStream.Length)
                     {
-                        // Leer los valores de la tabla
-                        int id = reader.ReadInt32();  // Asumiendo que la columna es del tipo int
-                        string nombre = reader.ReadString();
-                        string apellido = reader.ReadString();
+                        int id = reader.ReadInt32();
+                        string nombre = reader.ReadString().Trim().Replace("\0", "");
+                        string apellido = reader.ReadString().Trim().Replace("\0", "");
+
+                        // Verificar si las cadenas contienen caracteres inesperados
+                        if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido))
+                        {
+                            Console.WriteLine("Valor inválido encontrado, omitiendo fila.");
+                            continue;
+                        }
+
+                        // Imprimir la fila formateada en la tabla
+                        Console.WriteLine("{0,-10} | {1,-30} | {2,-50}", id, nombre, apellido);
 
                         // Insertar en el índice si es la columna que estamos indexando
                         if (columnName == "ID")
@@ -148,6 +179,9 @@ namespace StoreDataManager
 
             return OperationStatus.Success;
         }
+
+
+
 
 
         public OperationStatus CreateTable(string tableName, Dictionary<string, string> columns)
