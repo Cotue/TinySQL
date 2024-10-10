@@ -3,22 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\alear\\source\\repos\\TinySQL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|c:\\users\\alear\\source\\repos\\tinysql\\apiinterface\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|solutionrelative:apiinterface\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|c:\\users\\alear\\source\\repos\\tinysql\\queryprocessor\\mydatabase.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|solutionrelative:queryprocessor\\mydatabase.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|c:\\users\\alear\\source\\repos\\tinysql\\queryprocessor\\operations\\insert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|solutionrelative:queryprocessor\\operations\\insert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88F4BF0A-05CC-43CD-9547-1C2598A13CDE}|StoreDataManager\\StoreDataManager.csproj|c:\\users\\alear\\source\\repos\\tinysql\\storedatamanager\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88F4BF0A-05CC-43CD-9547-1C2598A13CDE}|StoreDataManager\\StoreDataManager.csproj|solutionrelative:storedatamanager\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|c:\\users\\alear\\source\\repos\\tinysql\\queryprocessor\\sqlqueryprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|solutionrelative:queryprocessor\\sqlqueryprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,12 +11,28 @@
       "RelativeMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|solutionrelative:queryprocessor\\operations\\createtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{050A2246-4FB0-4303-BB9B-C3DB87762D65}|Entities\\Entities.csproj|c:\\users\\alear\\source\\repos\\tinysql\\entities\\operationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{050A2246-4FB0-4303-BB9B-C3DB87762D65}|Entities\\Entities.csproj|solutionrelative:entities\\operationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|c:\\users\\alear\\source\\repos\\tinysql\\queryprocessor\\operations\\insert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|solutionrelative:queryprocessor\\operations\\insert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|c:\\users\\alear\\source\\repos\\tinysql\\apiinterface\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|solutionrelative:apiinterface\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F4BF0A-05CC-43CD-9547-1C2598A13CDE}|StoreDataManager\\StoreDataManager.csproj|c:\\users\\alear\\source\\repos\\tinysql\\storedatamanager\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F4BF0A-05CC-43CD-9547-1C2598A13CDE}|StoreDataManager\\StoreDataManager.csproj|solutionrelative:storedatamanager\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|c:\\users\\alear\\source\\repos\\tinysql\\apiinterface\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|solutionrelative:apiinterface\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|c:\\users\\alear\\source\\repos\\tinysql\\queryprocessor\\mydatabase.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|solutionrelative:queryprocessor\\mydatabase.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{050A2246-4FB0-4303-BB9B-C3DB87762D65}|Entities\\Entities.csproj|c:\\users\\alear\\source\\repos\\tinysql\\entities\\operationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{050A2246-4FB0-4303-BB9B-C3DB87762D65}|Entities\\Entities.csproj|solutionrelative:entities\\operationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BA429044-79E0-4687-94CE-72A03E773EA2}|Solution Items{BA429044-79E0-4687-94CE-72A03E773EA2}|C:\\Users\\alear\\source\\repos\\TinySQL\\Client\\tinysqlclient.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -50,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,7 +58,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "MyDatabase.sql ",
               "DocumentMoniker": "C:\\Users\\alear\\source\\repos\\TinySQL\\QueryProcessor\\MyDatabase.sql",
               "RelativeDocumentMoniker": "QueryProcessor\\MyDatabase.sql",
@@ -83,33 +83,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "CreateTable.cs",
               "DocumentMoniker": "C:\\Users\\alear\\source\\repos\\TinySQL\\QueryProcessor\\Operations\\CreateTable.cs",
               "RelativeDocumentMoniker": "QueryProcessor\\Operations\\CreateTable.cs",
               "ToolTip": "C:\\Users\\alear\\source\\repos\\TinySQL\\QueryProcessor\\Operations\\CreateTable.cs",
               "RelativeToolTip": "QueryProcessor\\Operations\\CreateTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T06:29:10.392Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "SQLQueryProcessor.cs",
               "DocumentMoniker": "C:\\Users\\alear\\source\\repos\\TinySQL\\QueryProcessor\\SQLQueryProcessor.cs",
               "RelativeDocumentMoniker": "QueryProcessor\\SQLQueryProcessor.cs",
               "ToolTip": "C:\\Users\\alear\\source\\repos\\TinySQL\\QueryProcessor\\SQLQueryProcessor.cs",
               "RelativeToolTip": "QueryProcessor\\SQLQueryProcessor.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwCYAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAwwDEAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T05:45:23.037Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "OperationStatus.cs",
               "DocumentMoniker": "C:\\Users\\alear\\source\\repos\\TinySQL\\Entities\\OperationStatus.cs",
               "RelativeDocumentMoniker": "Entities\\OperationStatus.cs",
@@ -122,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "Response.cs",
               "DocumentMoniker": "C:\\Users\\alear\\source\\repos\\TinySQL\\ApiInterface\\Models\\Response.cs",
               "RelativeDocumentMoniker": "ApiInterface\\Models\\Response.cs",
@@ -135,13 +135,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Store.cs",
               "DocumentMoniker": "C:\\Users\\alear\\source\\repos\\TinySQL\\StoreDataManager\\Store.cs",
               "RelativeDocumentMoniker": "StoreDataManager\\Store.cs",
               "ToolTip": "C:\\Users\\alear\\source\\repos\\TinySQL\\StoreDataManager\\Store.cs",
               "RelativeToolTip": "StoreDataManager\\Store.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwB8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAswEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T07:52:41.324Z",
               "EditorCaption": ""
@@ -161,13 +161,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Server.cs",
               "DocumentMoniker": "C:\\Users\\alear\\source\\repos\\TinySQL\\ApiInterface\\Server.cs",
               "RelativeDocumentMoniker": "ApiInterface\\Server.cs",
               "ToolTip": "C:\\Users\\alear\\source\\repos\\TinySQL\\ApiInterface\\Server.cs",
               "RelativeToolTip": "ApiInterface\\Server.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAYwEsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAgwEsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T05:47:11.544Z",
               "EditorCaption": ""

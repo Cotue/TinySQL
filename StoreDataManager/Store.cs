@@ -61,31 +61,69 @@ namespace StoreDataManager
             Directory.CreateDirectory(SystemCatalogPath);
         }
 
-        public OperationStatus CreateTable()
+        public OperationStatus CreateTable(string tableName, Dictionary<string, string> columns)
         {
-            // Creates a default DB called TESTDB
-            Directory.CreateDirectory($@"{DataPath}\TESTDB");
-
-            // Creates a default Table called ESTUDIANTES
-            var tablePath = $@"{DataPath}\TESTDB\ESTUDIANTES.Table";
-
-            using (FileStream stream = File.Open(tablePath, FileMode.OpenOrCreate))
-            using (BinaryWriter writer = new (stream))
+            var currentDatabase = GetCurrentDatabase();
+            if (string.IsNullOrEmpty(currentDatabase))
             {
-                // Create an object with a hardcoded.
-                // First field is an int, second field is a string of size 30,
-                // third is a string of 50
-                int id = 1;
-                string nombre = "Isaac".PadRight(30); // Pad to make the size of the string fixed
-                string apellido = "Ramirez".PadRight(50);
-
-                writer.Write(id);
-                writer.Write(nombre);
-                writer.Write(apellido);
-            
+                Console.WriteLine("No se ha seleccionado ninguna base de datos.");
+                return OperationStatus.Error;
             }
+
+            var tablePath = $@"{GetDataPath()}\{currentDatabase}\{tableName}.Table";
+
+            // Verificar si la tabla ya existe
+            if (File.Exists(tablePath))
+            {
+                Console.WriteLine($"La tabla {tableName} ya existe.");
+                return OperationStatus.Error;
+            }
+
+            // Crear el archivo de la tabla
+            using (FileStream stream = File.Create(tablePath))
+            using (BinaryWriter writer = new BinaryWriter(stream))
+            {
+                // Escribir el esquema de la tabla en el archivo
+                writer.Write(columns.Count); // Escribir el número de columnas
+
+                foreach (var column in columns)
+                {
+                    writer.Write(column.Key.PadRight(30));   // Nombre de la columna (ej. "ID")
+                    writer.Write(column.Value.PadRight(20)); // Tipo de la columna (ej. "INTEGER")
+                }
+            }
+
+            Console.WriteLine($"Tabla {tableName} creada en la base de datos {currentDatabase}.");
             return OperationStatus.Success;
         }
+
+        public OperationStatus DropTable(string tableName)
+        {
+            var dataPath = GetDataPath();
+            var currentDatabase = GetCurrentDatabase();
+            var tablePath = $@"{dataPath}\{currentDatabase}\{tableName}.Table";
+
+            // Verificar si la tabla existe
+            if (!File.Exists(tablePath))
+            {
+                Console.WriteLine($"La tabla {tableName} no existe.");
+                return OperationStatus.Error;
+            }
+
+            // Verificar si la tabla está vacía
+            FileInfo fileInfo = new FileInfo(tablePath);
+            if (fileInfo.Length > 0)
+            {
+                Console.WriteLine($"No se puede eliminar la tabla {tableName} porque no está vacía.");
+                return OperationStatus.Error;
+            }
+
+            // Eliminar la tabla
+            File.Delete(tablePath);
+            Console.WriteLine($"La tabla {tableName} ha sido eliminada.");
+            return OperationStatus.Success;
+        }
+
         public string? GetCurrentDatabase()
         {
             return currentDatabase;

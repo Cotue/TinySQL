@@ -34,15 +34,45 @@ namespace QueryProcessor
                 return Store.GetInstance().SetDatabase(databaseName);
             }
 
+            if (sentence.StartsWith("CREATE TABLE"))
+            {
+                var parts = sentence.Split(new[] { '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+                var tableName = parts[0].Split(' ')[2]; // Obtener el nombre de la tabla
+                var columnsPart = parts[1].Trim();
+
+                // Extraer columnas y sus tipos
+                var columns = columnsPart.Split(',');
+                var columnsDict = new Dictionary<string, string>();
+
+                foreach (var column in columns)
+                {
+                    var columnParts = column.Trim().Split(' ');
+                    var columnName = columnParts[0];
+                    var columnType = columnParts[1];
+                    columnsDict.Add(columnName, columnType);
+                }
+
+                return new CreateTable().Execute(tableName, columnsDict);  // Llamada con los parámetros correctos
+            }
+
+
             if (sentence.StartsWith("INSERT INTO"))
             {
                 
                 return new Insert().Execute(sentence);
             }
 
-            if (sentence.StartsWith("CREATE TABLE"))
+            if (sentence.StartsWith("DROP TABLE"))
             {
-                return new CreateTable().Execute();
+                var parts = sentence.Split(' ');
+                if (parts.Length != 3)
+                {
+                    throw new UnknownSQLSentenceException();  
+                }
+
+
+                var tableName = parts[2];  // Obtener el nombre de la tabla
+                return Store.GetInstance().DropTable(tableName);
             }
 
             if (sentence.StartsWith("SELECT"))
