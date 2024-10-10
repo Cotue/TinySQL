@@ -11,6 +11,7 @@ namespace QueryProcessor
         public static OperationStatus Execute(string sentence)
         {
             /// Parser para identificar y procesar las sentencias SQL
+            Console.WriteLine($"Sentencia recibida: {sentence}");
             if (sentence.StartsWith("CREATE DATABASE"))
             {
                 var parts = sentence.Split(' ');
@@ -82,16 +83,23 @@ namespace QueryProcessor
             {
                 // Dividir la sentencia en partes clave
                 var parts = sentence.Split(new[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+                
+                //Esto es para ver como se realiza el split
+                Console.WriteLine("Sentencia dividida en partes:");
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    Console.WriteLine($"parts[{i}]: {parts[i]}");
+                }
 
-                if (parts.Length < 8 || parts[5] != "OF" || parts[6] != "TYPE")
+                if (parts.Length < 8 || parts[6] != "OF" || parts[7] != "TYPE")
                 {
                     throw new UnknownSQLSentenceException(); // Lanza excepción si la sintaxis es incorrecta
                 }
 
                 var indexName = parts[2];         // IDX_Casas_ID
                 var tableName = parts[4];         // Casas
-                var columnName = parts[6];        // ID
-                var indexType = parts[7];         // BTREE o BST
+                var columnName = parts[5];        // ID
+                var indexType = parts[8];         // BTREE o BST
 
                 Console.WriteLine($"Nombre del índice: {indexName}, Tabla: {tableName}, Columna: {columnName}, Tipo: {indexType}");
 

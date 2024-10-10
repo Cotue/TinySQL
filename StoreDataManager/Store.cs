@@ -87,31 +87,27 @@ namespace StoreDataManager
 
 
                 // Recorrer la columna y agregar al índice
-                using (FileStream stream = File.Open(tablePath, FileMode.OpenOrCreate))
+                using (FileStream stream = File.Open(tablePath, FileMode.Open))
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
-                    while (reader.BaseStream.Position != reader.BaseStream.Length)
+                    while (stream.Position < stream.Length)
                     {
-                        // Leer los valores de la tabla
-                        int id = reader.ReadInt32();  // Asumiendo que la columna es del tipo int
-                        string nombre = reader.ReadString();
-                        string apellido = reader.ReadString();
-
-                        // Insertar en el índice si es la columna que estamos indexando
-                        if (columnName == "ID")
+                        try
                         {
-                            if (!index.Search(id))  // Asegurarse de que no haya duplicados
-                            {
-                                index.Insert(id);
-                            }
-                            else
-                            {
-                                Console.WriteLine($"El valor {id} en la columna {columnName} ya existe. No se permiten duplicados.");
-                                return OperationStatus.Error;
-                            }
+                            int id = reader.ReadInt32();
+                            string nombre = reader.ReadString();
+                            string apellido = reader.ReadString();
+
+                            Console.WriteLine($"ID: {id}, Nombre: {nombre}, Apellido: {apellido}");
+                        }
+                        catch (EndOfStreamException)
+                        {
+                            Console.WriteLine("Fin del archivo alcanzado.");
+                            break;
                         }
                     }
                 }
+
             }
             else if (indexType == "BST")
             {
