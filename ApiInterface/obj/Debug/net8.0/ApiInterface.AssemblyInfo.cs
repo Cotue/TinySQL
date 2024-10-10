@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiInterface")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5ef473a9c5d95d2d4e0cfdd49cae606301f2360")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d41163f50adf77cb404b3d2f7dc6a966ec6828c4")]
+>>>>>>> 3ba36bef5c7afe8546bd041a378f2e0fd28e5489
 [assembly: System.Reflection.AssemblyProductAttribute("ApiInterface")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiInterface")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
