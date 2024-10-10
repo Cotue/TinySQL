@@ -148,3 +148,9 @@ function Send-SQLCommand {
 # Ejemplo de prueba
 Send-SQLCommand -Query "CREATE TABLE ESTUDIANTE" -IPEndPoint $ipEndPoint
 Send-SQLCommand -Query "SELECT * FROM ESTUDIANTE" -IPEndPoint $ipEndPoint
+# Crear una base de datos llamada 'Universidad'
+Send-SQLCommand -Query "CREATE DATABASE Universidad" -IPEndPoint $ipEndPoint
+
+
+
+

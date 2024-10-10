@@ -65,6 +65,35 @@ namespace StoreDataManager
             }
             return OperationStatus.Success;
         }
+        public OperationStatus CreateDatabase(string databaseName)
+        {
+            // Ruta para la base de datos
+            var databasePath = $@"{DataPath}\{databaseName}";
+
+            // Verificar si la base de datos ya existe
+            if (Directory.Exists(databasePath))
+            {
+                Console.WriteLine($"La base de datos {databaseName} ya existe.");
+                return OperationStatus.Error;  // Evitar duplicados
+            }
+
+            // Crear la carpeta de la base de datos
+            Directory.CreateDirectory(databasePath);
+            Console.WriteLine($"Base de datos {databaseName} creada en {databasePath}.");
+
+            // Actualizar el archivo SystemDatabases con el nombre de la nueva base de datos
+            var systemDatabasesPath = SystemDatabasesFile;
+            using (FileStream stream = File.Open(systemDatabasesPath, FileMode.Append))
+            using (BinaryWriter writer = new BinaryWriter(stream))
+            {
+                // Escribir el nombre de la nueva base de datos
+                writer.Write(databaseName);
+            }
+
+            return OperationStatus.Success;
+        }
+
+
 
         public OperationStatus Select()
         {

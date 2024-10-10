@@ -29,3 +29,4 @@ C:\Users\alear\source\repos\TinySQL\StoreDataManager\obj\Debug\net8.0\StoreDataM
 C:\Users\alear\source\repos\TinySQL\StoreDataManager\obj\Debug\net8.0\refint\StoreDataManager.dll
 C:\Users\alear\source\repos\TinySQL\StoreDataManager\obj\Debug\net8.0\StoreDataManager.pdb
 C:\Users\alear\source\repos\TinySQL\StoreDataManager\obj\Debug\net8.0\ref\StoreDataManager.dll
+C:\Users\X\Desktop\TinySQLDb-main\StoreDataManager\obj\Debug\net8.0\StoreDataManager.sourcelink.json
