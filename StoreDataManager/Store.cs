@@ -60,6 +60,45 @@ namespace StoreDataManager
             // exist when initializing
             Directory.CreateDirectory(SystemCatalogPath);
         }
+        //Crea indice para los arboles
+        public OperationStatus CreateIndex(string indexName, string tableName, string columnName, string indexType)
+        {
+            var tablePath = $@"{GetDataPath()}\{GetCurrentDatabase()}\{tableName}.Table";
+
+            // Verificar si la tabla existe
+            if (!File.Exists(tablePath))
+            {
+                Console.WriteLine($"La tabla {tableName} no existe.");
+                return OperationStatus.Error;
+            }
+
+            // Verificar si ya existe un índice en esa columna
+            if (SystemCatalog.ContainsIndex(tableName, columnName))
+            {
+                Console.WriteLine($"Ya existe un índice en la columna {columnName}.");
+                return OperationStatus.Error;
+            }
+
+            // Crear el índice basado en el tipo
+            if (indexType == "BTREE")
+            {
+                BTree index = new BTree(3);
+                // Recorrer la columna y agregar al índice (asegurarse de que no haya duplicados)
+                // index.Insert(...);
+            }
+            else if (indexType == "BST")
+            {
+                BST index = new BST();
+                // Recorrer la columna y agregar al índice (asegurarse de que no haya duplicados)
+                // index.Insert(...);
+            }
+
+            // Registrar el índice en el system catalog
+            SystemCatalog.AddIndex(indexName, tableName, columnName, indexType);
+
+            Console.WriteLine($"Índice {indexName} creado en la columna {columnName} de la tabla {tableName}.");
+            return OperationStatus.Success;
+        }
 
         public OperationStatus CreateTable(string tableName, Dictionary<string, string> columns)
         {
