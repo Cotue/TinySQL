@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|c:\\users\\x\\desktop\\tinysqldb-main\\queryprocessor\\sqlqueryprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|solutionrelative:queryprocessor\\sqlqueryprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BA429044-79E0-4687-94CE-72A03E773EA2}|Solution Items{BA429044-79E0-4687-94CE-72A03E773EA2}|C:\\Users\\X\\Desktop\\TinySQLDb-main\\Client\\tinysqlclient.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{BA429044-79E0-4687-94CE-72A03E773EA2}|Solution Items{BA429044-79E0-4687-94CE-72A03E773EA2}|solutionrelative:Client\\tinysqlclient.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|c:\\users\\x\\desktop\\tinysqldb-main\\apiinterface\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|solutionrelative:apiinterface\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|c:\\users\\x\\desktop\\tinysqldb-main\\queryprocessor\\mydatabase.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|solutionrelative:queryprocessor\\mydatabase.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|c:\\users\\x\\desktop\\tinysqldb-main\\queryprocessor\\sqlqueryprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEF07376-906C-4CE9-A10B-A38884AFCB87}|QueryProcessor\\QueryProcessor.csproj|solutionrelative:queryprocessor\\sqlqueryprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|c:\\users\\x\\desktop\\tinysqldb-main\\apiinterface\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F0F27A2-916F-4F6B-A608-60A4CFA8B1B6}|ApiInterface\\ApiInterface.csproj|solutionrelative:apiinterface\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88F4BF0A-05CC-43CD-9547-1C2598A13CDE}|StoreDataManager\\StoreDataManager.csproj|c:\\users\\x\\desktop\\tinysqldb-main\\storedatamanager\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -94,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 19,
           "Children": [
             {
               "$type": "Document",
@@ -228,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Server.cs",
               "DocumentMoniker": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\ApiInterface\\Server.cs",
               "RelativeDocumentMoniker": "ApiInterface\\Server.cs",
@@ -241,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MyDatabase.sql ",
               "DocumentMoniker": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\QueryProcessor\\MyDatabase.sql",
               "RelativeDocumentMoniker": "QueryProcessor\\MyDatabase.sql",
@@ -305,13 +305,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "SQLQueryProcessor.cs",
               "DocumentMoniker": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\QueryProcessor\\SQLQueryProcessor.cs",
               "RelativeDocumentMoniker": "QueryProcessor\\SQLQueryProcessor.cs",
               "ToolTip": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\QueryProcessor\\SQLQueryProcessor.cs",
               "RelativeToolTip": "QueryProcessor\\SQLQueryProcessor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA6AAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwBMAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T03:15:45.736Z",
               "EditorCaption": ""
@@ -344,13 +344,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "tinysqlclient.ps1",
               "DocumentMoniker": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\Client\\tinysqlclient.ps1",
               "RelativeDocumentMoniker": "Client\\tinysqlclient.ps1",
               "ToolTip": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\Client\\tinysqlclient.ps1*",
               "RelativeToolTip": "Client\\tinysqlclient.ps1*",
-              "ViewState": "AQIAAG8AAAAAAAAAAAAmwJgAAAAAAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAmwH0AAAAAAAAA",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKISURBVDhPlVLdS1RBFP/dux/JrppKUVoISrRSbVGEBq4Z5ZPRk39A9FYPUQ89CUEv2WOC\u002BFRB9QcUPoQkBItUkAa\u002BpNZ\u002BGO2u3nbdVe/evevuzsydZmY/shehM/fMuefMnN/8zuFoEBIOh7m0\u002BwnnnPX39z/0\u002B/1PaiEVVFYCUEI4pYQzRpU6DlMqY9IuLCzwubk5llhP3lFJNdHlJoHkUl8NtG51XV0BIQShUEj/vrw6GY/Hb6qgEHXqOM6\u002BIFJs28b8/Ly86xUAL2vhvwzEVgXZ8984EzIycg1ng0H0BQLKr4tqoqiND18egqYJV\u002BjMu/fo7OpSvk0YvG4dLvFUhXI44j7hGtKGwW\u002BN3agW2ChB6PqGAV9bB1oCQUxveIHOHkwl3VjxdyN3vA/rh0/A1X0ShTJRjysAxphkrQAi0Rjgb8VyWUfcpoDLg/uXevDoQwTPI9t4Y5QQyxZgJBOkAbCXQc4uw\u002BQexPJlME3H7dkVdDV78HbsHJZWk1jL5pHezCG9kdr8B0BSkCzyxTLSjgcRqwKnrRWZHRuO7sLH1DZ2ShTRtAlqbsHKGJ8bAJTSBoMCZfhB3JiJb2EzmkDs7jBGX33Bs8VfOAgGZzsPapnIb\u002BVmGwD1ZEnhN/Xia7YEtruLIy1NuPJ6UXV\u002B6voZPBjshVe0Lp/NwNfanpK5brmZpinnRwEcE0n3Ojk8onkmaUGlVEKxQhBeXILf58Pj0258\u002B2TgQPuhhExRDCzLqvZArN5mDReabARdBYSaihjylzCgZREs/MRoB8HRbAzcyiGTSkRlrmJQLBZVCZpYVwcHlJUDVZ0r6dV9DafOX8Sa8RQvpieZzFXDMD4\u002BXp3X/5CJiQmRC/wBUOeA8MehIQsAAAAASUVORK5CYII=",
               "WhenOpened": "2024-10-08T00:49:09.423Z",
               "EditorCaption": ""
