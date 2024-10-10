@@ -86,8 +86,8 @@ namespace StoreDataManager
                 Console.WriteLine($"Creando índice BTREE en la columna {columnName} de la tabla {tableName}.");
 
                 // Imprimir la cabecera de la tabla
-                Console.WriteLine("\n{0,-10} | {1,-30} | {2,-50}", "ID", "Nombre", "Apellido");
-                Console.WriteLine(new string('-', 100)); // Separador
+                Console.WriteLine("ID".PadRight(10) + "|" + "Nombre".PadRight(30) + "|" + "Apellido".PadRight(50));
+                Console.WriteLine(new string('-', 90));
 
                 // Recorrer la columna y agregar al índice
                 using (FileStream stream = File.Open(tablePath, FileMode.Open))
@@ -97,23 +97,14 @@ namespace StoreDataManager
                     {
                         try
                         {
-                            int id = reader.ReadInt32();
+                            int id = reader.ReadInt32(); // Leer el ID (entero)
+                            string nombre = reader.ReadString().Trim(); // Leer el nombre, quitar espacios en blanco al final
+                            string apellido = reader.ReadString().Trim(); // Leer el apellido, quitar espacios en blanco al final
 
-                            // Asegurarse de que las cadenas leídas estén bien formateadas
-                            string nombre = reader.ReadString().Trim().Replace("\0", "");  // Eliminar caracteres nulos
-                            string apellido = reader.ReadString().Trim().Replace("\0", "");
-
-                            // Verificar si las cadenas contienen caracteres inesperados
-                            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido))
-                            {
-                                Console.WriteLine("Valor inválido encontrado, omitiendo fila.");
-                                continue;
-                            }
-
-                            // Imprimir la fila formateada en la tabla
+                            // Asegurarse de que los datos se alineen correctamente con los espacios definidos
                             Console.WriteLine("{0,-10} | {1,-30} | {2,-50}", id, nombre, apellido);
 
-                            // Insertar en el índice si es la columna ID
+                            // Insertar en el índice si es la columna que se está indexando
                             if (columnName == "ID")
                             {
                                 index.Insert(id);
@@ -133,41 +124,34 @@ namespace StoreDataManager
                 Console.WriteLine($"Creando índice BST en la columna {columnName} de la tabla {tableName}.");
 
                 // Imprimir la cabecera de la tabla
-                Console.WriteLine("\n{0,-10} | {1,-30} | {2,-50}", "ID", "Nombre", "Apellido");
-                Console.WriteLine(new string('-', 100)); // Separador
+                Console.WriteLine("ID".PadRight(10) + "|" + "Nombre".PadRight(30) + "|" + "Apellido".PadRight(50));
+                Console.WriteLine(new string('-', 90));
 
                 // Recorrer la columna y agregar al índice
                 using (FileStream stream = File.Open(tablePath, FileMode.Open))
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
-                    while (reader.BaseStream.Position != reader.BaseStream.Length)
+                    while (stream.Position < stream.Length)
                     {
-                        int id = reader.ReadInt32();
-                        string nombre = reader.ReadString().Trim().Replace("\0", "");
-                        string apellido = reader.ReadString().Trim().Replace("\0", "");
-
-                        // Verificar si las cadenas contienen caracteres inesperados
-                        if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido))
+                        try
                         {
-                            Console.WriteLine("Valor inválido encontrado, omitiendo fila.");
-                            continue;
-                        }
+                            int id = reader.ReadInt32(); // Leer el ID (entero)
+                            string nombre = reader.ReadString().Trim(); // Leer el nombre, quitar espacios en blanco al final
+                            string apellido = reader.ReadString().Trim(); // Leer el apellido, quitar espacios en blanco al final
 
-                        // Imprimir la fila formateada en la tabla
-                        Console.WriteLine("{0,-10} | {1,-30} | {2,-50}", id, nombre, apellido);
+                            // Asegurarse de que los datos se alineen correctamente con los espacios definidos
+                            Console.WriteLine("{0,-10} | {1,-30} | {2,-50}", id, nombre, apellido);
 
-                        // Insertar en el índice si es la columna que estamos indexando
-                        if (columnName == "ID")
-                        {
-                            if (!index.Search(id))  // Asegurarse de que no haya duplicados
+                            // Insertar en el índice si es la columna que se está indexando
+                            if (columnName == "ID")
                             {
                                 index.Insert(id);
                             }
-                            else
-                            {
-                                Console.WriteLine($"El valor {id} en la columna {columnName} ya existe. No se permiten duplicados.");
-                                return OperationStatus.Error;
-                            }
+                        }
+                        catch (EndOfStreamException)
+                        {
+                            Console.WriteLine("Fin del archivo alcanzado.");
+                            break;
                         }
                     }
                 }
@@ -179,6 +163,7 @@ namespace StoreDataManager
 
             return OperationStatus.Success;
         }
+
 
 
 
@@ -211,8 +196,8 @@ namespace StoreDataManager
 
                 foreach (var column in columns)
                 {
-                    writer.Write(column.Key.PadRight(30));   // Nombre de la columna
-                    writer.Write(column.Value.PadRight(20)); // Tipo de la columna
+                    writer.Write(column.Key.PadRight(30, ' '));   // Nombre de la columna
+                    writer.Write(column.Value.PadRight(20, ' ')); // Tipo de la columna
                 }
             }
 
@@ -221,6 +206,7 @@ namespace StoreDataManager
 
             return OperationStatus.Success;
         }
+
 
 
         public OperationStatus DropTable(string tableName)
@@ -300,25 +286,24 @@ namespace StoreDataManager
 
             Console.WriteLine($"Mostrando datos de la tabla {tableName}:");
 
-            // Imprimir la cabecera de la tabla
-            Console.WriteLine("\n{0,-10} | {1,-30} | {2,-50}", "ID", "Nombre", "Apellido");
-            Console.WriteLine(new string('-', 100)); // Separador
 
             // Recorrer los registros de la tabla
             using (FileStream stream = File.Open(tablePath, FileMode.Open))
             using (BinaryReader reader = new BinaryReader(stream))
             {
+                Console.WriteLine("ID".PadRight(10) + "|" + "Nombre".PadRight(30) + "|" + "Apellido".PadRight(50));
+                Console.WriteLine(new string('-', 90));
+
                 while (stream.Position < stream.Length)
                 {
                     try
                     {
-                        // Leer cada campo de la tabla (adaptar según la estructura real)
-                        int id = reader.ReadInt32();
-                        string nombre = reader.ReadString().Trim().Replace("\0", "");  // Eliminar caracteres nulos
-                        string apellido = reader.ReadString().Trim().Replace("\0", "");
+                        int id = reader.ReadInt32(); // Leer el ID (entero)
+                        string nombre = reader.ReadString().Trim(); // Leer el nombre, quitar espacios en blanco al final
+                        string apellido = reader.ReadString().Trim(); // Leer el apellido, quitar espacios en blanco al final
 
-                        // Imprimir cada fila en formato tabla
-                        Console.WriteLine("{0,-10} | {1,-30} | {2,-50}", id, nombre, apellido);
+                        // Asegurarse de que los datos se alineen correctamente con los espacios definidos
+                        Console.WriteLine(id.ToString().PadRight(10) + "|" + nombre.PadRight(30) + "|" + apellido.PadRight(50));
                     }
                     catch (EndOfStreamException)
                     {
@@ -327,6 +312,8 @@ namespace StoreDataManager
                     }
                 }
             }
+
+
 
             return OperationStatus.Success;
         }
