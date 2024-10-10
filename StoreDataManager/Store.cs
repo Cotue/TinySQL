@@ -88,20 +88,24 @@ namespace StoreDataManager
 
                 foreach (var column in columns)
                 {
-                    writer.Write(column.Key.PadRight(30));   // Nombre de la columna (ej. "ID")
-                    writer.Write(column.Value.PadRight(20)); // Tipo de la columna (ej. "INTEGER")
+                    writer.Write(column.Key.PadRight(30));   // Nombre de la columna
+                    writer.Write(column.Value.PadRight(20)); // Tipo de la columna
                 }
             }
 
             Console.WriteLine($"Tabla {tableName} creada en la base de datos {currentDatabase}.");
+            Console.WriteLine($"Ruta de la tabla: {tablePath}");
+
             return OperationStatus.Success;
         }
+
 
         public OperationStatus DropTable(string tableName)
         {
             var dataPath = GetDataPath();
             var currentDatabase = GetCurrentDatabase();
             var tablePath = $@"{dataPath}\{currentDatabase}\{tableName}.Table";
+            Console.WriteLine($"Ruta de la tabla: {tablePath}");
 
             // Verificar si la tabla existe
             if (!File.Exists(tablePath))
@@ -110,19 +114,14 @@ namespace StoreDataManager
                 return OperationStatus.Error;
             }
 
-            // Verificar si la tabla está vacía
-            FileInfo fileInfo = new FileInfo(tablePath);
-            if (fileInfo.Length > 0)
-            {
-                Console.WriteLine($"No se puede eliminar la tabla {tableName} porque no está vacía.");
-                return OperationStatus.Error;
-            }
+            // Falta verificar que este vacia
 
             // Eliminar la tabla
             File.Delete(tablePath);
             Console.WriteLine($"La tabla {tableName} ha sido eliminada.");
             return OperationStatus.Success;
         }
+
 
         public string? GetCurrentDatabase()
         {
