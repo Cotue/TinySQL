@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\X\\Desktop\\TinySQLDb-main\\QueryProcessor\\QueryProcessor.csproj": {}
+    "C:\\Users\\alear\\source\\repos\\TinySQL\\QueryProcessor\\QueryProcessor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\X\\Desktop\\TinySQLDb-main\\Entities\\Entities.csproj": {
+    "C:\\Users\\alear\\source\\repos\\TinySQL\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\alear\\source\\repos\\TinySQL\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\X\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\alear\\source\\repos\\TinySQL\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\alear\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alear\\source\\repos\\TinySQL\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\X\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alear\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,21 +61,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\X\\Desktop\\TinySQLDb-main\\QueryProcessor\\QueryProcessor.csproj": {
+    "C:\\Users\\alear\\source\\repos\\TinySQL\\QueryProcessor\\QueryProcessor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\QueryProcessor\\QueryProcessor.csproj",
+        "projectUniqueName": "C:\\Users\\alear\\source\\repos\\TinySQL\\QueryProcessor\\QueryProcessor.csproj",
         "projectName": "QueryProcessor",
-        "projectPath": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\QueryProcessor\\QueryProcessor.csproj",
-        "packagesPath": "C:\\Users\\X\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\QueryProcessor\\obj\\",
+        "projectPath": "C:\\Users\\alear\\source\\repos\\TinySQL\\QueryProcessor\\QueryProcessor.csproj",
+        "packagesPath": "C:\\Users\\alear\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alear\\source\\repos\\TinySQL\\QueryProcessor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\X\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alear\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,14 +83,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\X\\Desktop\\TinySQLDb-main\\StoreDataManager\\StoreDataManager.csproj": {
-                "projectPath": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\StoreDataManager\\StoreDataManager.csproj"
+              "C:\\Users\\alear\\source\\repos\\TinySQL\\StoreDataManager\\StoreDataManager.csproj": {
+                "projectPath": "C:\\Users\\alear\\source\\repos\\TinySQL\\StoreDataManager\\StoreDataManager.csproj"
               }
             }
           }
@@ -124,21 +126,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\X\\Desktop\\TinySQLDb-main\\StoreDataManager\\StoreDataManager.csproj": {
+    "C:\\Users\\alear\\source\\repos\\TinySQL\\StoreDataManager\\StoreDataManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\StoreDataManager\\StoreDataManager.csproj",
+        "projectUniqueName": "C:\\Users\\alear\\source\\repos\\TinySQL\\StoreDataManager\\StoreDataManager.csproj",
         "projectName": "StoreDataManager",
-        "projectPath": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\StoreDataManager\\StoreDataManager.csproj",
-        "packagesPath": "C:\\Users\\X\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\StoreDataManager\\obj\\",
+        "projectPath": "C:\\Users\\alear\\source\\repos\\TinySQL\\StoreDataManager\\StoreDataManager.csproj",
+        "packagesPath": "C:\\Users\\alear\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alear\\source\\repos\\TinySQL\\StoreDataManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\X\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alear\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -146,14 +148,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\X\\Desktop\\TinySQLDb-main\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\X\\Desktop\\TinySQLDb-main\\Entities\\Entities.csproj"
+              "C:\\Users\\alear\\source\\repos\\TinySQL\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\alear\\source\\repos\\TinySQL\\Entities\\Entities.csproj"
               }
             }
           }
@@ -188,7 +191,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

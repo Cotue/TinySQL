@@ -16,7 +16,10 @@
       },
       "Entities/1.0.0": {
         "runtime": {
-          "Entities.dll": {}
+          "Entities.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "StoreDataManager/1.0.0": {
@@ -24,7 +27,10 @@
           "Entities": "1.0.0"
         },
         "runtime": {
-          "StoreDataManager.dll": {}
+          "StoreDataManager.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
